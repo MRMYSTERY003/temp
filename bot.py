@@ -43,7 +43,7 @@ def send_cources(li, old_data):
             send_message(i[1], i[0][1], i[2], 1000-i[6], i[5], i[6], i[3])
         else:
             log(f"some error with url shorterner!!! for the link {i[0][1]}")
-        time.sleep(120)
+        time.sleep(60)
 
 
 def getlink(url):
