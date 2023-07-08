@@ -32,7 +32,6 @@ except:
 def getkey(keypath):
     with open(keypath, "r", encoding="utf-8") as f:
         local_state_data = f.read()
-        time.sleep(10)
         local_state_data = json.loads(local_state_data)
 
     # decoding the encryption key using base64
