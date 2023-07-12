@@ -195,3 +195,7 @@ while True:
 
     if min % 10 == 0:
         send_cources(data[0], data[1])
+    else:
+        sleep_time = 10 - (min % 10)
+        time.sleep(sleep_time)
+
