@@ -1,10 +1,13 @@
+Learn more about sketchpy on
+
 YOUTUBE:
 
 Title : Artistic Love: Winning Hearts by Sketching My Crush using PYTHON | SKETCHPY | CODE HUB | #crush
 URL : https://www.youtube.com/watch?v=jTqVtbIOxps
 
 BLOG:
-URL : https://codehub03.blogspot.com/
+URL : https://codehub03.blogspot.com/,
+RECENT BLOG: https://codehub03.blogspot.com/2023/07/draw-anime-characters-with-sketchpy-in.html
 
 DISCORD:
 URL : https://discord.gg/r2KFa73PM2
