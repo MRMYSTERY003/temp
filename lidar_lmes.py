@@ -1,6 +1,6 @@
 import serial
 import math
-import numpy as np
+import time
 from matplotlib import pyplot as plt
 import pyautogui
 
@@ -203,6 +203,16 @@ fig, ax = plt.subplots()
 display_w = 1370
 display_h = 770
 
+touch_duration_threshold = 0.5
+
+# Initialize touch variables
+touch_start_time = None
+touch_detected = False
+
+timer = 0
+detected = 0
+not_detected = 0
+
 
 def box(x, y):
     xmi = 5
@@ -226,6 +236,8 @@ def box(x, y):
     return None
 
 
+detected = True
+
 while 1:
     lidar_data = lidarfunc(10)
     angles = lidar_data.angles
@@ -237,24 +249,28 @@ while 1:
 
     for num, i in enumerate(angles):
         if i >= 0 and i <= 1.5:
-            # ang_p.append(i)
-            # dis_p.append(distance[num])
             res = calculate_coordinates(distance[num], i, mode=1)
             x.append(res[0])
             y.append(res[1])
-
-    # for num, i in enumerate(ang_p):
-    #     x, y = cvt(dis_p[num], i)
-
-    # x, y = calculate_coordinates(dis_p, ang_p)
-
-    # plt.polar(ang_p, dis_p)
-    # ax.scatter(ang_p, dis_p, s=2)
 
     v = None
     for i in range(len(x)):
         v = box(x, y)
 
-    if v != None:
+    if v is not None:
         print(v)
+
+        if detected:
+            timer = time.time()
+            detected = False
+    else:
+        if detected == False:
+            tt = time.time() - timer
+            if tt < 0.4:
+                print("click")
+                pyautogui.click(button="right")
+            detected = True
+
+    # Move the mouse cursor if the coordinates are available
+    if v is not None:
         pyautogui.moveTo(int(v[0]), abs(int(v[1]) - display_h))
