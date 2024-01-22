@@ -1,2 +1,2 @@
-youtube.com,
-facebook.com
+https://raw.githubusercontent.com/MRMYSTERY003/temp/main/bot.py,
+https://raw.githubusercontent.com/MRMYSTERY003/temp/main/bot2.py
